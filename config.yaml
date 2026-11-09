@@ -1,0 +1,30 @@
+app:
+  host: 127.0.0.1
+  port: 8000
+camera:
+  source: "0"
+  reconnect_seconds: 3
+  width: 1280
+  height: 720
+detector:
+  backend: yolo
+  weights: models/fire_smoke.pt
+  confidence: 0.45
+  image_size: 640
+  fire_labels: [fire, flame]
+  smoke_labels: [smoke]
+events:
+  database: runs/events.db
+  snapshot_dir: runs/events
+  cooldown_seconds: 30
+telegram:
+  enabled: false
+  send_photo: true
+  cooldown_seconds: 30
+stream:
+  publish_url: ""
+  ffmpeg: ffmpeg
+  fps: 20
+  bitrate: 1500k
+dashboard:
+  title: Fire Detection & Alert
